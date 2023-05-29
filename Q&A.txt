@@ -1,0 +1,204 @@
+O que é uma virtual machine
+
+Uma máquina virtual é um ambiente que funciona como um computador independente dentro de outro 
+sistema operativo hospedeiro. É criada através de um software denominado "hipervisor" ou 
+"monitor de máquinas virtuais". O hipervisor permite a criação e execução de várias máquinas 
+virtuais simultaneamente, cada uma com o seu próprio sistema operativo e recursos virtuais.
+
+Quando uma máquina virtual é iniciada, o hipervisor aloca recursos do sistema físico, como CPU, 
+memória RAM, armazenamento e dispositivos de rede, para a máquina virtual. A máquina virtual 
+executa o seu próprio sistema operativo, aplicações e processos, tal como se estivesse a funcionar 
+num computador físico dedicado.
+
+O hipervisor gere e isola as máquinas virtuais, garantindo que partilham os recursos físicos de
+forma segura e eficiente. Também fornece interfaces para interação com as máquinas virtuais, 
+permitindo aos utilizadores controlar e gerir o ambiente virtual.
+
+As máquinas virtuais oferecem vantagens como a capacidade de executar vários sistemas operativos 
+num único hardware, o isolamento de ambientes, a facilidade de migração entre servidores e a 
+realização de testes de software em diferentes configurações. São amplamente utilizadas em data 
+centers, servidores corporativos e ambientes de desenvolvimento, proporcionando flexibilidade e 
+eficiência na utilização dos recursos computacionais.
+
+--------------------------------------------------------------------------------------------------------
+
+Porquê Debian em vez de Rocky
+
+    Comunidade e suporte: O Debian é uma distribuição Linux estabelecida, com uma comunidade 
+	ativa e um vasto conjunto de recursos e documentação disponíveis. Para alguém novo, a 
+	disponibilidade de suporte e recursos pode ser um ponto importante a considerar.
+
+    Estabilidade e confiabilidade: O Debian é conhecido pela sua estabilidade e confiabilidade. 
+	A versão estável do Debian é testada e atualizada de forma rigorosa, o que pode ser atraente 
+	para alguém que deseja uma base sólida e estável para as suas máquinas virtuais.
+
+    Ampla seleção de pacotes: O Debian possui um vasto repositório de pacotes, o que significa 
+	que há uma ampla seleção de software disponível para instalação nas máquinas virtuais. 
+	Isso proporciona flexibilidade e opções para atender às necessidades específicas do usuário.
+
+    Versatilidade de arquiteturas: O Debian suporta uma ampla gama de arquiteturas de hardware, 
+	o que pode ser útil se alguém estiver a trabalhar com máquinas virtuais em diferentes ambientes 
+	ou plataformas.
+
+    Filosofia do software livre: O Debian tem um compromisso com a filosofia do software livre e 
+	adere aos princípios de liberdade de uso, distribuição e modificação do software. 
+	Se alguém valoriza o software livre e de código aberto, o Debian pode ser uma escolha apropriada.
+
+--------------------------------------------------------------------------------------------------------
+
+As diferenças básicas entre o Rocky Linux e o Debian podem ser resumidas nos seguintes pontos cruciais:
+
+Rocky Linux:
+
+Derivação: O Rocky Linux é uma bifurcação (fork) do Red Hat Enterprise Linux (RHEL). 
+		   Foi criado como uma alternativa após o fim do CentOS como uma distribuição clone do RHEL.
+Foco na estabilidade: O objetivo principal do Rocky Linux é fornecer uma distribuição estável, 4
+		   confiável e de longo prazo, adequada para ambientes de produção e servidores.
+Gestão de pacotes: Utiliza o gestor de pacotes "dnf" (Dandified YUM), que é uma evolução do YUM 
+		   (Yellowdog Updater, Modified) utilizado no RHEL.
+Comunidade: O Rocky Linux é desenvolvido e mantido por uma comunidade de voluntários, 
+		    seguindo um modelo de desenvolvimento aberto.
+
+Debian:
+
+Derivação: O Debian é uma distribuição Linux independente, desenvolvida pela comunidade, 
+		   com foco em software livre e de código aberto.
+Filosofia do Software Livre: O Debian adere estritamente aos princípios do Software Livre 
+		   e concentra-se em fornecer um sistema operativo composto inteiramente por software livre.
+Gestão de pacotes: Utiliza o gestor de pacotes "apt" (Advanced Packaging Tool), 
+		   que é conhecido pela sua eficiência, facilidade de uso e vasto repositório de pacotes.
+Arquiteturas suportadas: O Debian oferece suporte a um amplo conjunto de arquiteturas de 
+	       hardware, desde sistemas x86 e ARM até mainframes.
+Ramificações: O Debian possui várias ramificações, incluindo o Debian Stable (estável), 
+		   Testing (teste) e Unstable (instável), cada uma com diferentes níveis de estabilidade 
+		   e atualizações de software.
+
+--------------------------------------------------------------------------------------------------------
+
+Qual o propósito de utilizar uma VM
+
+-> Criar um ambiente virtualizado que simula um computador completo dentro de outro sistema 
+	operativo hospedeiro.
+-> Isolar ambientes de trabalho e garantir que um não interfira no outro.
+-> Aumentar a segurança ao executar aplicações suspeitas dentro de uma VM isolada.
+-> Consolidar vários servidores físicos em um único hardware poderoso.
+-> Ser flexível e escalável, permitindo a rápida criação, clonagem e migração de VMs.
+-> Simplificar a manutenção ao realizar tarefas de atualização e correção de forma isolada.
+-> Melhorar a gestão, segurança e eficiência dos sistemas de computação.
+
+Em suma, as VMs proporcionam ambientes virtuais isolados, seguros e flexíveis para diversos fins, 
+como desenvolvimento, teste, produção e virtualização de servidores.
+
+--------------------------------------------------------------------------------------------------------
+
+As diferenças básicas entre o apt e o aptitude, dois gestores de pacotes utilizados no sistema Debian, 
+podem ser resumidas nos seguintes pontos cruciais:
+
+apt:
+
+-> Interface de linha de comando: 
+	O apt é um gestor de pacotes com uma interface de linha de comando simples e direta.
+-> Sintaxe concisa: 
+	O apt utiliza uma sintaxe concisa para executar operações comuns de gestão de pacotes, 
+	como instalação, remoção e atualização.
+-> Integração com o dpkg: 
+	O apt trabalha em conjunto com o dpkg, o sistema de gestão de pacotes de baixo nível 
+	no Debian, para gerenciar a instalação e remoção de pacotes.
+-> Funcionalidade básica: 
+	O apt é mais focado nas funcionalidades básicas de gestão de pacotes, 
+	oferecendo uma forma rápida e eficiente de instalar e atualizar software.
+
+aptitude:
+
+-> Interface de linha de comando e TUI: 
+	O aptitude possui uma interface de linha de comando semelhante ao apt, mas também 
+	oferece uma interface textual baseada em TUI (Interface de Texto Baseada em Terminal).
+-> Resolução de dependências avançada: 
+	O aptitude tem uma capacidade avançada de resolver dependências, o que significa que 
+	pode resolver automaticamente as dependências dos pacotes ao realizar operações de instalação 
+	ou remoção.
+-> Recursos adicionais: 
+	O aptitude oferece recursos adicionais, como uma interface de pesquisa aprimorada, 
+	categorização de pacotes e opções de filtragem.
+-> Visualização interativa: 
+	A interface TUI do aptitude permite a visualização e navegação interativas pelos pacotes, 
+	facilitando a exploração e a tomada de decisões.
+
+---------------------------------------------------------------------------------------------------------
+
+AppArmor
+
+O AppArmor é um sistema de controlo de acesso obrigatório (Mandatory Access Control - MAC) 
+desenvolvido para sistemas operativos Linux. Ele fornece uma camada adicional de segurança 
+ao restringir as ações que um programa pode executar num sistema.
+
+Aqui estão os pontos cruciais sobre como o AppArmor funciona:
+
+-> Perfil de segurança: 
+	O AppArmor funciona através de perfis de segurança que definem as restrições de acesso 
+	para cada programa. Cada perfil é criado especificamente para um programa e contém regras 
+	que controlam quais recursos o programa pode aceder.
+-> Política baseada em perfil: 
+	O AppArmor utiliza uma abordagem de política baseada em perfil, o que significa que os 
+	perfis de segurança são pré-configurados e associados a programas específicos. 
+	Cada perfil define as permissões de acesso a ficheiros, diretórios, dispositivos, redes 
+	e outros recursos do sistema.-
+-> Controlo granular: 
+	O AppArmor oferece um controlo granular sobre as permissões de acesso. Os perfis de 
+	segurança podem especificar quais ficheiros um programa pode ler, escrever ou executar, 
+	limitando assim o impacto de uma possível exploração ou comprometimento do programa.
+-> Auditoria e registo de atividades: 
+	O AppArmor regista as tentativas de acesso não autorizado e outras atividades suspeitas 
+	num ficheiro de registo. Isso permite a auditoria e a análise posterior das atividades do 
+	programa, ajudando a identificar possíveis violações de segurança.
+-> Integração com o sistema operativo: 
+	O AppArmor está integrado no kernel do Linux e é ativado por padrão em algumas distribuições, 
+	como o Ubuntu. Pode ser gerido através de ferramentas de linha de comando ou interfaces 
+	gráficas específicas, permitindo a configuração e monitorização dos perfis de segurança.
+
+--------------------------------------------------------------------------------------------------------
+
+Qual é a vantagem da password policy utilizada neste projeto
+
+Esta política de senha ajuda a garantir que as senhas utilizadas pelos utilizadores sejam mais fortes, 
+mais complexas e menos suscetíveis a ataques. Ela promove boas práticas de segurança, protegendo as 
+contas de utilizadores e fortalecendo a segurança do sistema como um todo.
+
+Desvantagens da implementação da política de senhas descrita:
+
+    Complexidade para utilizadores.
+		-> Dificulta os utilizadores criarem e lembrarem de senhas complexas
+    Impacto na usabilidade.
+		-> Os utilizadores podem precisar alterar suas senhas com mais frequência 
+		e encontrar dificuldades para criar senhas que atendam aos requisitos.
+    Possibilidade de bloqueio de utilizadores legítimos.
+    Falsa sensação de segurança.
+		-> é importante reconhecer que elas não são uma solução completa para garantir 
+		a segurança do sistema. Outras medidas de segurança, como autenticação em dois 
+		fatores e proteção contra ataques de força bruta, também devem ser consideradas 
+		para complementar a política de senhas.
+
+É importante equilibrar a segurança com a usabilidade ao implementar políticas de senhas e 
+considerar outras medidas de segurança além das restrições de senha.
+
+--------------------------------------------------------------------------------------------------------
+
+Logical volumes
+	-> No geral, os volumes lógicos fornecem uma abordagem flexível e eficiente para gerir o 
+	armazenamento em sistemas Linux, permitindo a criação de partições virtuais com recursos avançados 
+	de redimensionamento e proteção de dados.
+
+Resumo de como o LVM (Logical Volume Manager) funciona:
+
+    O LVM permite criar volumes lógicos flexíveis a partir de dispositivos físicos.
+    Os dispositivos físicos são agrupados em um Volume Group (VG).
+    Dentro do VG, os Logical Volumes (LVs) são criados para armazenar dados.
+    Os LVs podem ser redimensionados dinamicamente.
+    Recursos avançados, como espelhamento e snapshots, estão disponíveis.
+    O LVM facilita a migração de dados entre dispositivos.
+    O LVM fornece uma camada de abstração para o gerenciamento de armazenamento, permitindo uma 
+	flexibilidade maior no uso e gerenciamento dos volumes lógicos.
+
+O LVM é uma ferramenta poderosa para gerenciar armazenamento em sistemas Linux, oferecendo recursos 
+como redimensionamento dinâmico e recursos avançados, tornando o gerenciamento de volumes lógicos 
+mais flexível e eficiente.

@@ -1,7 +1,242 @@
 
-Q&A 
+Commands
 
+path to my script cd /usr/local/bin/monitoring.sh
+
+lsblk -> check partitions
+
+sudo aa-status -> AppArmor status
+
+uname -a -> verificar qual o SO  utilizado
+
+getent group sudo -> Que users tem permissões sudo
+A resposta "sudo:x:27:samarque" fornecida pelo comando "getent group sudo" 
+contém informações sobre o grupo "sudo" no sistema. Cada parte da resposta 
+tem um significado específico:
+    "sudo": É o nome do grupo. Nesse caso, o grupo é chamado de "sudo".
+    "x": O campo da senha normalmente contém um caractere "x" ou um asterisco (*).
+	Isso indica que a senha do grupo está armazenada em um arquivo separado, como o /etc/gshadow.
+    "27": É o ID do grupo (GID). O GID é um número exclusivo atribuído ao grupo. 
+	Neste caso, o ID do grupo "sudo" é 27.
+    "samarque": É a lista de membros do grupo "sudo". Nesse exemplo, "samarque" 
+	é um dos membros desse grupo. Se houver mais membros, eles seriam 
+	listados separados por vírgulas.
+
+getent group user42 -> que users estão no grupo user42 (funciona da mesma maneira que em cima)
+
+sudo service ssh status -> 	verificar o estado do ssh (active), PID (que processo) e em que port decorre
+
+sudo ufw status -> verificar o estado atual da ufw e as suas configurações
+Ao executar o comando "sudo ufw status", você obtém informações sobre o estado atual do 
+UFW e suas configurações. A resposta do comando geralmente inclui detalhes como:
+    "Status": Indica se o UFW está ativado (enabled) ou desativado (disabled).
+    Lista de regras: As regras definidas no firewall, que controlam quais conexões 
+	de entrada e saída são permitidas ou bloqueadas.
+    "To Action": A ação padrão definida pelo UFW para conexões que não correspondem a 
+	nenhuma regra específica. Pode ser "Allow" (permitir) ou "Deny" (bloquear).
+A saída do comando "sudo ufw status" fornecerá uma visão geral das configurações atuais 
+do firewall, permitindo que você verifique se ele está ativado e quais regras estão sendo 
+aplicadas. Isso é útil para garantir que o firewall esteja configurado corretamente e 
+protegendo o sistema contra acesso não autorizado. Além disso, é possível usar comandos 
+adicionais do UFW, como "sudo ufw enable" para ativar o firewall ou "sudo ufw disable" 
+para desativá-lo.
+
+Hostname -I -> verificar qual é o ip adressado ao user 
+
+sudo systemctl restart ssh -> para dar restart ao ssh
+
+ssh samarque@10.12.248.86 -p 4242 -> conectar à VM através do computador fisico (no terminal)
+
+nano /etc/sudoers -> is where the sudo configuration file is -> have to be in root
+
+nano /etc/login.defs -> password expire policy
+
+nano /etc/pam.d/common-password -> password policy
+
+nano /etc/hostname -> change hostname
+
+cd /var/log/sudo -> have to be in root and then we can see all sudo logs
+
+crontab -> é usado para editar as tarefas agendadas (cron jobs) do 
+usuário root no sistema Linux. O cron é um utilitário de agendamento que 
+permite executar comandos ou scripts em momentos pré-determinados.
+
+sudo crontab -e -> editar o ficheiro crontab
+
+sudo crontab -l -> crontab schedule
+
+sudo adduser example1 -> create new user called example1 and assign passwd and Enter
+
+sudo chage -l example1 -> check passwd expire info for newuser
+
+sudo adduser example1 sudo -> add user example1 to group sudo
+sudo adduser example1 user42 -> add user example1 to group user42
+
+sudo deluser example1 sudo(ou user42) - remove o user previamente adicionado a um grupo
+
+
+Q&A português 
+
+Uma máquina virtual, também conhecida como VM (Virtual Machine, em inglês), 
+é um ambiente computacional que simula um computador completo dentro de outro 
+computador físico. Permite que um único sistema físico seja dividido em vários 
+ambientes isolados, cada um funcionando como um computador independente.
+
+Uma máquina virtual é criada através de software especializado chamado hipervisor 
+ou gestor de máquinas virtuais. O hipervisor permite que várias máquinas virtuais 
+sejam executadas simultaneamente no mesmo hardware físico, partilhando os seus 
+recursos, como processador, memória e armazenamento.
+
+Cada máquina virtual possui o seu próprio sistema operativo e aplicações instaladas, 
+como se fosse um computador separado. Os utilizadores podem interagir com uma máquina 
+virtual da mesma forma que interagem com um computador real, executando programas, 
+navegando na Internet e realizando tarefas.
+
+As máquinas virtuais são amplamente utilizadas em diversas áreas, como desenvolvimento 
+de software, testes, virtualização de servidores, consolidação de recursos e criação 
+de ambientes de testes isolados. Oferecem flexibilidade, eficiência e segurança, pois 
+permitem que vários sistemas operativos e aplicações sejam executados num único 
+hardware físico, reduzindo custos e melhorando a utilização dos recursos.
+
+O que é LVM
+
+LVM (Logical Volume Manager) é um sistema de gerenciamento de volumes lógicos 
+utilizado em ambientes de máquinas virtuais. Ele oferece recursos avançados de 
+gerenciamento de armazenamento, permitindo a criação e o gerenciamento de volumes 
+lógicos flexíveis e redimensionáveis.
+
+Em uma virtual machine, o LVM permite que o espaço de armazenamento seja particionado 
+em volumes lógicos, que podem ser tratados como discos rígidos virtuais dentro da 
+máquina virtual. Esses volumes lógicos podem ser dimensionados, redimensionados e 
+combinados de forma dinâmica, sem a necessidade de interromper a máquina virtual ou perder dados.
+
+O uso do LVM em uma virtual machine traz vantagens significativas. Ele permite a 
+criação de partições virtuais maiores do que os discos físicos disponíveis, 
+possibilitando o aumento de capacidade conforme necessário. Além disso, é possível 
+realizar o gerenciamento de armazenamento de maneira mais flexível, com recursos como 
+a adição ou remoção de discos virtuais sem a necessidade de interrupção da máquina virtual.
+
+O LVM também fornece funcionalidades como a criação de snapshots, que são cópias 
+instantâneas do estado atual do volume lógico. Isso permite a realização de backups 
+rápidos e a recuperação de dados em caso de falhas.
+
+
+***LVM*** - Logival Volume Manager - e uma camada abstracta entre o armazenamento 
+de um dispositivo (storage device) e de um sistema de ficheiros (file system). Esta 
+dita camada da uma maior flexibilidade no que toca a criar e lidar com particoes. 
+Sem a LVM, nao conseguiriamos expandir o armazenamento de particoes visto que isso
+estaria dependente disco.
+Com uma LVM, e possivel modificar e expandir o armazenamento de qualquer particao 
+sem ter restricoes, tambem situadas em discos fisicos diferentes. Existem 3 tipos 
+de volumes diferentes:
+
+    - *Volume Fisico* (Physical Volume - PV) armazenamento fisico do dispositivo, 
+	pode ser um disco rigido, sd card etc;
+
+    - *Volume de Grupo* (Volume Group - VG) serve para usar o espaco fornecido 
+	pelo PV, quase como um disco de armazenamento virtual que vai ser usado por 
+	LV’s. Estes podem aumentar adicionando PV’s;
+
+    - *Volume Logico* (Logical Volume - LV) dispositivos que vao servir para criar
+	file systems, swaps, virtual machines, etc. Sendo o VG o disco de armazenamento, 
+	os LV vao ser as particoes dentro desse disco.
+
+-------
+
+***Apt*** - Num sistema operativo baseado em Debian, o default package manager que 
+podemos usar e o dpkg. Isto da nos permissao para instalar, remover e modificar 
+programas no nosso sistema operativo (OS). Estes programas costumam vir com 
+dependencias que devem ser instaladas para o programa principal poder funcionar. 
+Nestes casos, Apt (Advanced Package Tool), uma ferramenta que usa dpkg, pode ser 
+usada para instalar todas as dependencias necessarias ao instalar um programa.
+
+-------
+
+***Aptitude*** - serve para instalar programas de uma interface grafica (praphical 
+interface), tambem ajuda a controlar melhor as dependencias, permitindo o utilizador 
+escolher as dependencias ao instalar um programa.
+
+-------
+
+***SSH*** - Secure Shell - um protocolo de administracao remoto que permite os usuarios 
+modificar o seus proprios servidores pela internet por causa de um mecanismo de 
+autenticacao. Esse mecnismo permite a autnticacao de um utilizador, transferencias
+de data do cliente para o host, e uma resposta. SSH utiliza usa tecnicas de
+encriptacao para assegurar a comunicacao entre o cliente e o host.
+
+ssh {username}@{IP_host} -p {port} - comando usado para conectar cpm um servidor SSH
+
+Tecnicas de encriptacao SSH:
+	- Symmetric encryption - usa uma chave secreta comum para a encriptacao e
+	desencriptacao de uma mensagem para o cliente e host;
+	- Asymmetric encryption - usa duas chaves secretas diferentes para a encriptacao
+	e desencriptacao. Juntas formam a dita chave publica e privada (ssh key pub/.);
+	- Hashing - forma de criptografia usada em SSH. Nao precisam de ser 
+	desencriptadas, se um cliente ou host tem o input correcto, SSH verificada se 
+	ambas hashes coincidem.
+
+-------
+
+
+***UFW*** - Uncomplicated Firewall - e uma aplicacao de softwar responsavel de 
+verificar se o administrador consegue aceder e modificar iptables de uma maneira
+simples. A UFW permite modificar interfaces sem comprometer a sua seguranca. 
+Ao instalar, e possivel escolher quais os ports para fazer as conexoes e quais fechar.
+
+-------
+
+***Cron*** - um Linux Task Manager que permite executar comandos num tempo definido.
+
+***Wall*** - um comando usado pelo utilizador root para enviar uma mensagens a 
+todos o outros conectados ao mesmo servidor.
+
+-------
+
+***AppArmor*** - a AppArmor permite o Mandatory Access Control (MAC) security. 
+Permite que o administrador restrinja as accoes que processos podem exercer. serve
+para modificar, retirar e acrescentar permissoes a aplicacoes, estes sao geridos
+por perfil. Estes perfis podem trabalhar em 2 modos:
+	- Enforce-mode onde proibe as aplicacoes de realizar tarefas restritas;
+	- Complain-mode onde permite realizar tais tarefas mas cria um registo de 
+	entrada.
+
+-------
+
+***VDI*** - Virtual Desktop Infrastructure - uma tecnologia que permite uma 
+maquina virtual ter e modificar um Desktop Virtual.
+
+-------
+
+***TTY*** - um comando que verifica se a said de informacao e um terminal (quase como
+uma protecao/seguranca)
+
+-------
+
+***libpam-pwquality*** - um package que serve como um plug-in para rever e 
+classificar a seguranca de passwords, tambem tem a possibilidade de conseguir gerar passwords aleatorias
+dentro das normas de seguranca.
+
+-------
+
+***GREP COMMAND*** - um comando que procura dentro de um ficheiro especifico
+por uma string ou palavras indicadas
+
+-------
+
+***AWK COMMAND*** - o comando awk permite os utilizadores para processar e 
+manipular data e produzir reports formatados
+
+-------
+
+***DF COMMAND*** - reporta o o tamanho usado do disco
+
+-------
+
+***WC COMMAND*** - o comando wc significa word count, retorna o numero das palavras,
+com a flag -l, retorna o numero de newlines encontradas.
 ----------------------------------------------------------------------------------------------
+
+Q&A english
 
 Why did I choose Debian?
 
