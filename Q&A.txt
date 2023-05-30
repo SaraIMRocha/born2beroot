@@ -278,6 +278,38 @@ de sistemas e qualquer pessoa que precise se conectar e interagir com sistemas r
 
 --------------------------------------------------------------------------------------------------------
 
+O que é sudo e porque utilizá-lo
+
+O "sudo" é um comando utilizado em sistemas operativos Unix e Linux para permitir que utilizadores 
+comuns executem comandos ou acessem recursos que normalmente exigiriam privilégios de superutilizador 
+(root).
+
+Aqui estão os principais valores e razões para utilizar o "sudo":
+
+    Segurança: O "sudo" permite limitar as ações administrativas aos utilizadores autorizados. 
+	Em vez de permitir que todos os utilizadores tenham acesso completo como root, o "sudo" 
+	oferece um nível adicional de segurança, garantindo que apenas as pessoas designadas tenham 
+	permissões elevadas.
+
+    Controlo de acesso: O "sudo" permite configurar um controlo preciso sobre quais comandos e 
+	recursos os utilizadores podem aceder. É possível definir políticas específicas para cada 
+	utilizador ou grupo, concedendo apenas as permissões necessárias para realizar determinadas tarefas.
+
+    Rastreabilidade: O "sudo" registra as ações realizadas pelos utilizadores autorizados, 
+	o que facilita a auditoria e o acompanhamento das atividades realizadas no sistema. 
+	Isso ajuda a identificar qualquer comportamento inadequado ou a solucionar problemas, se necessário.
+
+    Praticidade: O "sudo" evita a necessidade de fazer login diretamente como root para executar 
+	comandos administrativos. Em vez disso, os utilizadores podem executar comandos específicos 
+	com privilégios elevados, fornecendo a senha do seu próprio utilizador. Isso facilita a 
+	administração do sistema e reduz os riscos associados ao uso contínuo da conta root.
+
+Em resumo, o "sudo" oferece uma maneira segura, controlada e rastreável de conceder privilégios 
+administrativos a utilizadores específicos. Ele ajuda a proteger o sistema contra acessos não 
+autorizados, mantém o controle sobre as ações realizadas e simplifica a administração do sistema.
+
+--------------------------------------------------------------------------------------------------------
+
 O que é Cron e para que serve
 
 O cron é uma ferramenta do sistema operativo Linux que permite agendar tarefas para serem executadas 
